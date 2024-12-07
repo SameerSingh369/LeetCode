@@ -1,4 +1,4 @@
-Maximum SubArray Problem Complete Solution
+#Maximum SubArray Problem Complete Solution
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
@@ -14,7 +14,7 @@ public:
         return maxSum;
     }
 };
-Best Time to By and Sell Problem Complete Solution
+#Best Time to By and Sell Problem Complete Solution
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -26,5 +26,23 @@ public:
             maxProfit = max(maxProfit, profit);
         }
         return maxProfit;
+    }
+};
+#Longest Substring Without Repeating Character Problem Complete Solution
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int>CHI;
+        int maxLength = 0;
+        int start = 0;
+        for(int i = 0; i< s.length(); i++){
+            char ai = s[i];
+            if(CHI.find(ai) != CHI.end() && CHI[ai] >= start){
+            start = CHI[ai]+1;
+            }
+            CHI[ai]=i;
+            maxLength = max(maxLength, i-start+1);
+        }
+        return maxLength;
     }
 };
